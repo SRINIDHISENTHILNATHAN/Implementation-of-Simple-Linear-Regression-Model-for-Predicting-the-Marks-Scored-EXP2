@@ -16,13 +16,12 @@ To write a program to predict the marks scored by a student using the simple lin
 6.  Compare the graphs and hence we obtained the linear regression for the given datas.
 
 ## Program:
+### df.head():
 ```
 
 Program to implement the simple linear regression model for predicting the marks scored.
 Developed by: SRINIDHI SENTHIL
 RegisterNumber:  212222230148
-```
-```
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt 
@@ -30,18 +29,22 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 df=pd.read_csv("student_scores.csv")
 df.head()
 ```
+### df.tail():
 ```
 df.tail()
 ```
+### ARRAY VALUE OF X:
 ```
 #segregating data to variables
 x=df.iloc[:,:-1].values
 x
 ```
+### ARRAY VALUE OF Y:
 ```
 y=df.iloc[:,1].values
 y
 ```
+### VALUES OF Y PREDICTION:
 ```
 from sklearn.model_selection import train_test_split
 x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=1/3,random_state=0)
@@ -51,9 +54,11 @@ regressor.fit(x_train,y_train)
 y_pred=regressor.predict(x_test)
 y_pred
 ```
+### ARRAY VALUES OF Y TEST:
 ```
 y_test
 ```
+### TRAINING SET GRAPH: 
 ```
 plt.scatter(x_train,y_train,colour="orange")
 plt.plot(x_train,regressor.predict(x_train),colour="red")
@@ -62,6 +67,7 @@ plt.xlabel("hours")
 plt.ylabel("scores")
 plt.show()
 ```
+### TEST SET GRAPH:
 ```
 plt.scatter(x_test,y_test,color='purple')
 plt.plot(x_test,regressor.predict(x_test),color='yellow')
@@ -70,6 +76,7 @@ plt.xlabel("Hours")
 plt.ylabel("Scores")
 plt.show()
 ```
+### VALUES OF MSE,MAE,RMSE
 ```
 mse=mean_absolute_error(y_test,y_pred)
 print('MSE = ',mse)
@@ -79,22 +86,23 @@ rmse=np.sqrt(mse)
 print("RMSE= ",rmse)
 ```
 ## Output:
+### df.head():
 ![image](https://github.com/user-attachments/assets/1845f889-5079-4d4f-8241-ae2c1b40783b)
-
+### df.tail():
 ![image](https://github.com/user-attachments/assets/698a5498-9af2-4a20-be72-10ef781d3507)
-
+### ARRAY VALUE OF X:
 ![image](https://github.com/user-attachments/assets/b808ef52-3dd9-4fbc-979b-e1c49fdb7372)
-
+### ARRAY VALUE OF Y:
 ![image](https://github.com/user-attachments/assets/c00df820-cdf3-40a8-b5c6-21a012a5b679)
-
+### VALUES OF Y PREDICTION:
 ![image](https://github.com/user-attachments/assets/2c9c548d-18ce-4baa-a834-dae5213c152f)
-
+### ARRAY VALUES OF Y TEST:
 ![image](https://github.com/user-attachments/assets/4aa91477-cff9-491f-9ce3-63aa821199a9)
-
+### TRAINING SET GRAPH: 
 ![image](https://github.com/user-attachments/assets/6f61873f-024b-46a4-897b-0a8fd2eb3a5e)
-
+### TEST SET GRAPH:
 ![image](https://github.com/user-attachments/assets/2373041c-bbd1-46a0-ac2f-3780f7548972)
-
+### VALUES OF MSE,MAE,RMSE
 ![image](https://github.com/user-attachments/assets/b6042cd3-87d8-4ed2-8e54-c79c6056a95f)
 
 
